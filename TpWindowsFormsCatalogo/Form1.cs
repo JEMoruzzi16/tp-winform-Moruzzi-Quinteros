@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace TpWindowsFormsCatalogo
 {
-    public partial class Form1 : Form
+    public partial class form_Catalogo : Form
     {
-        public Form1()
+        public form_Catalogo()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Agregar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("texto");
         }
     }
 }
