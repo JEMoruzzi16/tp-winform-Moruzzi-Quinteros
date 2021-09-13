@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TpWindowsFormsCatalogo
 {
     public partial class form_Catalogo : Form
@@ -35,6 +36,7 @@ namespace TpWindowsFormsCatalogo
                 ArticuloNegocio negocio = new ArticuloNegocio();
                 listaArticulo = negocio.listar();
                 dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
                 cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
