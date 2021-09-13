@@ -46,13 +46,13 @@ namespace TpWindowsFormsCatalogo
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(925, 426);
+            this.textBox1.Size = new System.Drawing.Size(1070, 386);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btn_Buscar
             // 
-            this.btn_Buscar.Location = new System.Drawing.Point(943, 119);
+            this.btn_Buscar.Location = new System.Drawing.Point(491, 414);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(75, 21);
             this.btn_Buscar.TabIndex = 5;
@@ -61,16 +61,17 @@ namespace TpWindowsFormsCatalogo
             // 
             // btn_Listar
             // 
-            this.btn_Listar.Location = new System.Drawing.Point(943, 72);
+            this.btn_Listar.Location = new System.Drawing.Point(195, 412);
             this.btn_Listar.Name = "btn_Listar";
             this.btn_Listar.Size = new System.Drawing.Size(75, 23);
             this.btn_Listar.TabIndex = 6;
             this.btn_Listar.Text = "Listar";
             this.btn_Listar.UseVisualStyleBackColor = true;
+            this.btn_Listar.Click += new System.EventHandler(this.btn_Listar_Click);
             // 
             // btn_Agregar
             // 
-            this.btn_Agregar.Location = new System.Drawing.Point(943, 28);
+            this.btn_Agregar.Location = new System.Drawing.Point(12, 412);
             this.btn_Agregar.Name = "btn_Agregar";
             this.btn_Agregar.Size = new System.Drawing.Size(75, 23);
             this.btn_Agregar.TabIndex = 7;
@@ -79,7 +80,7 @@ namespace TpWindowsFormsCatalogo
             // 
             // btn_Modificar
             // 
-            this.btn_Modificar.Location = new System.Drawing.Point(943, 211);
+            this.btn_Modificar.Location = new System.Drawing.Point(1007, 410);
             this.btn_Modificar.Name = "btn_Modificar";
             this.btn_Modificar.Size = new System.Drawing.Size(75, 23);
             this.btn_Modificar.TabIndex = 8;
@@ -88,7 +89,7 @@ namespace TpWindowsFormsCatalogo
             // 
             // btn_Eliminar
             // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(943, 164);
+            this.btn_Eliminar.Location = new System.Drawing.Point(786, 412);
             this.btn_Eliminar.Name = "btn_Eliminar";
             this.btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.btn_Eliminar.TabIndex = 9;
@@ -100,15 +101,15 @@ namespace TpWindowsFormsCatalogo
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Location = new System.Drawing.Point(34, 28);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(546, 349);
+            this.dgvArticulos.Size = new System.Drawing.Size(753, 349);
             this.dgvArticulos.TabIndex = 10;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(607, 28);
+            this.pbxArticulo.Location = new System.Drawing.Point(793, 28);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(272, 349);
+            this.pbxArticulo.Size = new System.Drawing.Size(274, 349);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 11;
             this.pbxArticulo.TabStop = false;
@@ -117,7 +118,7 @@ namespace TpWindowsFormsCatalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 447);
+            this.ClientSize = new System.Drawing.Size(1094, 447);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.btn_Eliminar);
@@ -128,7 +129,6 @@ namespace TpWindowsFormsCatalogo
             this.Controls.Add(this.textBox1);
             this.Name = "form_Catalogo";
             this.Text = "Catalogo";
-            this.Load += new System.EventHandler(this.form_Catalogo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
