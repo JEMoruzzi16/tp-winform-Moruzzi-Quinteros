@@ -57,6 +57,17 @@ namespace winform_app
             {
                 MessageBox.Show(ex.Message);
             }
-        }        
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+        }
+
+        private void form_catalogo_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

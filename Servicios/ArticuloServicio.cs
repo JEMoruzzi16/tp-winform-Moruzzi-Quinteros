@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using dominio;
 
-
-namespace TpWindowsFormsCatalogo
+namespace Servicios
 {
-    class ArticuloNegocio
+    public class ArticuloServicio
     {
+
         public List<Articulo> listar()
         {
-            
+
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
 
@@ -32,7 +32,9 @@ namespace TpWindowsFormsCatalogo
                     aux.IdMarca.Descripcion = (string)datos.Lector["Marca"];
                     aux.IdCategoria = new Categoria();
                     aux.IdCategoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+
                     aux.Precio = (decimal)datos.Lector["Precio"];
 
                     lista.Add(aux);
@@ -47,6 +49,32 @@ namespace TpWindowsFormsCatalogo
             {
                 datos.cerrarConexxion();
             }
+
         }
+    
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos data = new AccesoDatos();
+            try
+            {
+                data.setearConsulta("INSERT INTO ARTICULOS(Codigo, Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl,Precio) values ('" + nuevo.Codigo + "','" + nuevo.Nombre + "','" + nuevo.Descripcion + "',@idMarca,@idCategoria,'" + nuevo.ImagenUrl + "',"+nuevo.Precio+")");
+                data.setearParametro("@idMarca", nuevo.IdMarca.Id);
+                data.setearParametro("@idCategoria",nuevo.IdCategoria.Id);
+                
+                data.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                data.cerrarConexxion();
+            }
+        }
+            
+
     }
 }
