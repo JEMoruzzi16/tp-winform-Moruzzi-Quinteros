@@ -82,15 +82,15 @@ namespace Servicios
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update ARTICULOS set Codigo = @Cod, Nombre = @Nom, Descripcion = @Des, IdMarca = @IdM, IdCategoria = @IdC, ImagenUrl = @Img, Precio = @Precio where id = @ID");
-                datos.setearParametro("@Cod", modificado.Codigo);
-                datos.setearParametro("@Nom", modificado.Nombre);
-                datos.setearParametro("@Des", modificado.Descripcion);
-                datos.setearParametro("@IdM", modificado.IdMarca.Id);
-                datos.setearParametro("@IdC", modificado.IdCategoria.Id);
-                datos.setearParametro("@Img", modificado.ImagenUrl);
-                datos.setearParametro("@Precio", modificado.Precio);
-                datos.setearParametro("@ID",modificado.Id);
+                datos.setearConsulta("update ARTICULOS set Codigo = @cod, Nombre = @nom, Descripcion = @des, IdMarca = @idM, IdCategoria = @idC, ImagenUrl = @img, Precio = @pre where id = @ID");
+                datos.setearParametro("@ID", modificado.Id);
+                datos.setearParametro("@cod", modificado.Codigo);
+                datos.setearParametro("@nom", modificado.Nombre);
+                datos.setearParametro("@des", modificado.Descripcion);
+                datos.setearParametro("@idM", modificado.IdMarca.Id);
+                datos.setearParametro("@idC", modificado.IdCategoria.Id);
+                datos.setearParametro("@img", modificado.ImagenUrl);
+                datos.setearParametro("@Pre", modificado.Precio);
 
 
                 datos.ejecutarAccion();
