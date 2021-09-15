@@ -18,7 +18,7 @@ namespace Servicios
 
             try
             {
-                datos.setearConsulta("select ar.Id, ar.Codigo, ar.Nombre, ar.Descripcion, ar.ImagenUrl, ar.Precio, ma.Descripcion as Marca, ca.Descripcion as Categoria from ARTICULOS as ar inner join MARCAS as ma on ar.IdMarca = ma.Id inner join CATEGORIAS as ca on ar.IdCategoria = ca.Id");
+                datos.setearConsulta("select ar.Id, ar.Codigo, ar.Nombre, ar.Descripcion, ar.ImagenUrl, ar.Precio,ma.Id, ma.Descripcion as Marca, ca.Id, ca.Descripcion as Categoria from ARTICULOS as ar inner join MARCAS as ma on ar.IdMarca = ma.Id inner join CATEGORIAS as ca on ar.IdCategoria = ca.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -29,8 +29,10 @@ namespace Servicios
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.IdMarca = new Marca();
+                    aux.IdMarca.Id = (int)datos.Lector["Id"];
                     aux.IdMarca.Descripcion = (string)datos.Lector["Marca"];
                     aux.IdCategoria = new Categoria();
+                    aux.IdCategoria.Id = (int)datos.Lector["Id"];
                     aux.IdCategoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
@@ -74,7 +76,36 @@ namespace Servicios
                 data.cerrarConexxion();
             }
         }
-            
+
+        public void modificar(Articulo modificado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update ARTICULOS set Codigo = @Cod, Nombre = @Nom, Descripcion = @Des, IdMarca = @IdM, IdCategoria = @IdC, ImagenUrl = @Img, Precio = @Precio where id = @ID");
+                datos.setearParametro("@Cod", modificado.Codigo);
+                datos.setearParametro("@Nom", modificado.Nombre);
+                datos.setearParametro("@Des", modificado.Descripcion);
+                datos.setearParametro("@IdM", modificado.IdMarca.Id);
+                datos.setearParametro("@IdC", modificado.IdCategoria.Id);
+                datos.setearParametro("@Img", modificado.ImagenUrl);
+                datos.setearParametro("@Precio", modificado.Precio);
+                datos.setearParametro("@ID",modificado.Id);
+
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexxion();
+            }
+        }
 
     }
+
 }
