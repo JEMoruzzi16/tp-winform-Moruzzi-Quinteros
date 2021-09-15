@@ -192,6 +192,7 @@ namespace winform_app
             this.pbxUrlImagen.Location = new System.Drawing.Point(435, 73);
             this.pbxUrlImagen.Name = "pbxUrlImagen";
             this.pbxUrlImagen.Size = new System.Drawing.Size(359, 279);
+            this.pbxUrlImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxUrlImagen.TabIndex = 9;
             this.pbxUrlImagen.TabStop = false;
             // 
