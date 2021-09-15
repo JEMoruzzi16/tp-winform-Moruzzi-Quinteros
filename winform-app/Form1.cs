@@ -45,9 +45,14 @@ namespace winform_app
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void cargar()
+        {
+                ArticuloServicio servicio = new ArticuloServicio();
             try
             {
-                ArticuloServicio servicio = new ArticuloServicio();
                 listaArticulo = servicio.listar();
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
@@ -61,13 +66,14 @@ namespace winform_app
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmAltaArticulo alta = new frmAltaArticulo();
-            alta.ShowDialog();
+            //frmAltaArticulo alta = new frmAltaArticulo();
+            //alta.ShowDialog();
+            //cargar();
         }
 
         private void form_catalogo_Load(object sender, EventArgs e)
         {
-           
+            cargar();
         }
     }
 }

@@ -45,6 +45,8 @@ namespace winform_app
             this.tbxPrecio = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.pbxUrlImagen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxUrlImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -116,21 +118,21 @@ namespace winform_app
             this.tbxCodigo.Location = new System.Drawing.Point(124, 73);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(285, 20);
-            this.tbxCodigo.TabIndex = 7;
+            this.tbxCodigo.TabIndex = 0;
             // 
             // tbxNombre
             // 
             this.tbxNombre.Location = new System.Drawing.Point(124, 100);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(285, 20);
-            this.tbxNombre.TabIndex = 8;
+            this.tbxNombre.TabIndex = 1;
             // 
             // tbxDescripcion
             // 
             this.tbxDescripcion.Location = new System.Drawing.Point(124, 128);
             this.tbxDescripcion.Name = "tbxDescripcion";
             this.tbxDescripcion.Size = new System.Drawing.Size(285, 20);
-            this.tbxDescripcion.TabIndex = 9;
+            this.tbxDescripcion.TabIndex = 2;
             // 
             // cboMarca
             // 
@@ -139,7 +141,7 @@ namespace winform_app
             this.cboMarca.Location = new System.Drawing.Point(124, 163);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(285, 21);
-            this.cboMarca.TabIndex = 10;
+            this.cboMarca.TabIndex = 3;
             // 
             // cboCategoria
             // 
@@ -148,28 +150,29 @@ namespace winform_app
             this.cboCategoria.Location = new System.Drawing.Point(124, 191);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(285, 21);
-            this.cboCategoria.TabIndex = 11;
+            this.cboCategoria.TabIndex = 4;
             // 
             // tbxUrlImagen
             // 
             this.tbxUrlImagen.Location = new System.Drawing.Point(124, 219);
             this.tbxUrlImagen.Name = "tbxUrlImagen";
             this.tbxUrlImagen.Size = new System.Drawing.Size(285, 20);
-            this.tbxUrlImagen.TabIndex = 12;
+            this.tbxUrlImagen.TabIndex = 5;
+            this.tbxUrlImagen.Leave += new System.EventHandler(this.tbxUrlImagen_Leave);
             // 
             // tbxPrecio
             // 
             this.tbxPrecio.Location = new System.Drawing.Point(124, 247);
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(285, 20);
-            this.tbxPrecio.TabIndex = 13;
+            this.tbxPrecio.TabIndex = 6;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(159, 325);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 27);
-            this.btnAceptar.TabIndex = 14;
+            this.btnAceptar.TabIndex = 7;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
@@ -179,16 +182,25 @@ namespace winform_app
             this.btnCancelar.Location = new System.Drawing.Point(300, 325);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 27);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // pbxUrlImagen
+            // 
+            this.pbxUrlImagen.Location = new System.Drawing.Point(435, 73);
+            this.pbxUrlImagen.Name = "pbxUrlImagen";
+            this.pbxUrlImagen.Size = new System.Drawing.Size(359, 279);
+            this.pbxUrlImagen.TabIndex = 9;
+            this.pbxUrlImagen.TabStop = false;
             // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 411);
+            this.ClientSize = new System.Drawing.Size(881, 411);
+            this.Controls.Add(this.pbxUrlImagen);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.tbxPrecio);
@@ -209,6 +221,7 @@ namespace winform_app
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Articulo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxUrlImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +245,6 @@ namespace winform_app
         private System.Windows.Forms.TextBox tbxPrecio;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.PictureBox pbxUrlImagen;
     }
 }

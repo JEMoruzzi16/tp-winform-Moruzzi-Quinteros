@@ -70,5 +70,23 @@ namespace winform_app
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void tbxUrlImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(tbxUrlImagen.Text);
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxUrlImagen.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxUrlImagen.Load("https://c.tenor.com/jwAkhSG3BWEAAAAC/error.gif");
+            }
+        }
+
     }
 }
