@@ -4,3 +4,9 @@ C:\Users\julia\OneDrive\Escritorio\TP\tp-winform-Moruzzi-Quinteros-main\dominio\
 C:\Users\julia\OneDrive\Escritorio\TP\tp-winform-Moruzzi-Quinteros-main\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\julia\OneDrive\Escritorio\TP\tp-winform-Moruzzi-Quinteros-main\dominio\obj\Debug\dominio.dll
 C:\Users\julia\OneDrive\Escritorio\TP\tp-winform-Moruzzi-Quinteros-main\dominio\obj\Debug\dominio.pdb
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.dll
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.pdb
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\bin\Debug\dominio.dll
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\bin\Debug\dominio.pdb
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\julia\OneDrive\Escritorio\Tp clon final\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache

@@ -70,5 +70,15 @@ namespace winform_app
         {
             cargar();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAltaArticulo modifcar = new frmAltaArticulo(seleccionado);
+            modifcar.ShowDialog();
+            cargar();
+        }
     }
 }

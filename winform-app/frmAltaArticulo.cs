@@ -14,9 +14,16 @@ namespace winform_app
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
+        }
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -31,20 +38,31 @@ namespace winform_app
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo art = new Articulo();
             ArticuloServicio servicio = new ArticuloServicio();
             try
             {
-                art.Codigo = tbxCodigo.Text;
-                art.Nombre = tbxNombre.Text;
-                art.Descripcion = tbxDescripcion.Text;
-                art.IdMarca = (Marca)cboMarca.SelectedItem;
-                art.IdCategoria = (Categoria)cboCategoria.SelectedItem;
-                art.ImagenUrl = tbxUrlImagen.Text;
-                art.Precio = decimal.Parse(tbxPrecio.Text);
+                if (articulo == null)
+                    articulo = new Articulo();
 
-                servicio.agregar(art);
-                MessageBox.Show("Agregado Exitosamente");
+                articulo.Codigo = tbxCodigo.Text;
+                articulo.Nombre = tbxNombre.Text;
+                articulo.Descripcion = tbxDescripcion.Text;
+                articulo.IdMarca = (Marca)cboMarca.SelectedItem;
+                articulo.IdCategoria = (Categoria)cboCategoria.SelectedItem;
+                articulo.ImagenUrl = tbxUrlImagen.Text;
+                articulo.Precio = decimal.Parse(tbxPrecio.Text);
+
+                if (articulo.Id != 0)
+                {
+                    servicio.modificar(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                }
+                else
+                {
+                    servicio.agregar(articulo);
+                    MessageBox.Show("Agregado Exitosamente");
+                }
+
                 Close();
             }
             catch (Exception ex)
@@ -61,8 +79,23 @@ namespace winform_app
             try
             {
                 cboMarca.DataSource = marcaServicio.listar();
+                cboMarca.ValueMember = "Id";
+                cboMarca.DisplayMember = "Descripcion";
                 cboCategoria.DataSource = categoriaServicio.listar();
+                cboCategoria.ValueMember = "Id";
+                cboCategoria.DisplayMember = "Descripcion";
 
+                if (articulo != null)
+                {
+                    tbxCodigo.Text = articulo.Codigo;
+                    tbxNombre.Text = articulo.Nombre;
+                    tbxDescripcion.Text = articulo.Descripcion;
+                    cboMarca.SelectedValue = articulo.IdMarca.Id;
+                    cboCategoria.SelectedValue = articulo.IdCategoria.Id;
+                    tbxUrlImagen.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
+                    tbxPrecio.Text = articulo.Precio.ToString();
+                }
             }
             catch (Exception ex)
             {
