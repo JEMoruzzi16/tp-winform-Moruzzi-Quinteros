@@ -51,6 +51,8 @@ namespace Presentacion
         private void btnListar_Click(object sender, EventArgs e)
         {
             cargar();
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
         }
 
         private void cargar()
