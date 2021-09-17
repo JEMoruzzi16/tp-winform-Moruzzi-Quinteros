@@ -17,7 +17,7 @@ namespace servicio
 
             try
             {
-                datos.setearConsulta("select ar.Id, ar.Codigo, ar.Nombre, ar.Descripcion, ar.ImagenUrl, ar.Precio,ma.Id, ma.Descripcion as Marca, ca.Id, ca.Descripcion as Categoria from ARTICULOS as ar inner join MARCAS as ma on ar.IdMarca = ma.Id inner join CATEGORIAS as ca on ar.IdCategoria = ca.Id");
+                datos.setearConsulta("select ar.Id, ar.Codigo, ar.Nombre, ar.Descripcion, ar.ImagenUrl, ar.Precio,ma.Id as IdMarca, ma.Descripcion as Marca, ca.Id as IdCategoria, ca.Descripcion as Categoria from ARTICULOS as ar inner join MARCAS as ma on ar.IdMarca = ma.Id inner join CATEGORIAS as ca on ar.IdCategoria = ca.Id");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -28,10 +28,10 @@ namespace servicio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Marca = new Marca();
-                    aux.Marca.Id = (int)datos.Lector["Id"];
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Id = (int)datos.Lector["Id"];
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                         aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
