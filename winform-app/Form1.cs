@@ -85,6 +85,7 @@ namespace winform_app
         {
             frmEliminarArticulo eliminar = new frmEliminarArticulo();
             eliminar.ShowDialog();
+            cargar();
             
         }
     }
