@@ -108,6 +108,7 @@ namespace Presentacion
                 seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
 
                 frmEliminar modifcar = new frmEliminar(seleccionado);
+                modifcar.StartPosition = FormStartPosition.CenterScreen;
                 modifcar.ShowDialog();
                 cargar();
             }

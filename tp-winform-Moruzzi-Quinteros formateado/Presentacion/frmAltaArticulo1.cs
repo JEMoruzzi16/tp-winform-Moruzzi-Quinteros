@@ -19,6 +19,7 @@ namespace Presentacion
         public frmAltaArticulo1()
         {
             InitializeComponent();
+            Text = "Agregar Artículo";
         }
 
         public frmAltaArticulo1(Articulo articulo)

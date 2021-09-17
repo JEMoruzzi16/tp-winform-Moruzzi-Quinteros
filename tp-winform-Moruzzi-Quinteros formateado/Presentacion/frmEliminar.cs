@@ -25,6 +25,7 @@ namespace Presentacion
             InitializeComponent();
             this.eliminado = eliminado;
             lblArticulo.Text = eliminado.Nombre;
+            Text = "Elimar Artículo";
         }
 
     private void btnCanelar_Click(object sender, EventArgs e)

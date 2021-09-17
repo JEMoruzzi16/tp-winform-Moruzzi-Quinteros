@@ -215,6 +215,7 @@ namespace Presentacion
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.lblCodigo);
+            this.MaximizeBox = false;
             this.Name = "frmAltaArticulo1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAltaArticulo1";

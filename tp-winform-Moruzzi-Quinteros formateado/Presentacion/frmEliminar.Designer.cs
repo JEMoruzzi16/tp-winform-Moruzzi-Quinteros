@@ -82,6 +82,7 @@ namespace Presentacion
             this.Controls.Add(this.btnCanelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblMensaje);
+            this.MaximizeBox = false;
             this.Name = "frmEliminar";
             this.Text = "frmEliminar";
             this.ResumeLayout(false);

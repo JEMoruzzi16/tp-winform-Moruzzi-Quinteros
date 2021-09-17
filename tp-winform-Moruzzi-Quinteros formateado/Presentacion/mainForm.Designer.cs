@@ -253,6 +253,7 @@ namespace Presentacion
             this.Controls.Add(this.dgbArticulos);
             this.Controls.Add(this.pnlTitle);
             this.Controls.Add(this.pnlTools);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(970, 489);
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
