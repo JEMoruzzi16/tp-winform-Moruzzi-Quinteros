@@ -80,5 +80,12 @@ namespace winform_app
             modifcar.ShowDialog();
             cargar();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            frmEliminarArticulo eliminar = new frmEliminarArticulo();
+            eliminar.ShowDialog();
+            
+        }
     }
 }

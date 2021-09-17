@@ -106,6 +106,26 @@ namespace Servicios
             }
         }
 
+        public void eliminar(Articulo eliminado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from ARTICULOS where Codigo = @cod");
+                datos.setearParametro("@cod", eliminado.Codigo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexxion();
+            }
+        }
+
     }
 
 }
