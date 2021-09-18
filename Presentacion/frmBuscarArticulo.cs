@@ -52,11 +52,20 @@ namespace Presentacion
             {
                 int valor;
                 if (txbCodigo.Enabled == true)
+                {
+                    articulo.Codigo = txbCodigo.Text;
                     valor = 1;
+                }
                 else if (cbxCategoria.Enabled == true)
+                {
+                    articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
                     valor = 2;
+                }
                 else
+                {
+                    articulo.Marca = (Marca)cbxMarca.SelectedItem;
                     valor = 3;
+                }
 
                 servicio.buscar(articulo,valor);
                 
@@ -64,7 +73,7 @@ namespace Presentacion
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
 
         }
