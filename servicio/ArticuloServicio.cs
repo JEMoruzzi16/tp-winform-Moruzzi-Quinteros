@@ -124,5 +124,44 @@ namespace servicio
                 datos.cerrarConexxion();
             }
         }
+
+        public void buscar(Articulo busquedo, int valor)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                if (valor == 1)
+                {
+                    //De codigo
+                    datos.setearConsulta("select @Cod, @Nom ,@Des,@Img,MA.Descripcion Marca, CA.Descripcion Categoria from ARTICULOS as AR inner join MARCAS as MA on AR.IdMarca = MA.Id inner join CATEGORIAS as CA on AR.IdCategoria = CA.Id where(Codigo=@Cod)");
+                    datos.setearParametro("@Cod", busquedo.Codigo);
+                    datos.setearParametro("@Nom", busquedo.Nombre);
+                    datos.setearParametro("@Des", busquedo.Descripcion);
+                    datos.setearParametro("@Img", busquedo.ImagenUrl);
+
+                    datos.ejecutarAccion();
+                }
+                else if (valor == 2)
+                { 
+                    //Por categoria
+                    datos.setearConsulta("");
+                }
+                else
+                {
+                    //Por marca
+                    datos.setearConsulta("");
+                }
+                    
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexxion();
+            }
+        }
     }
 }

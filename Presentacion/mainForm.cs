@@ -53,6 +53,7 @@ namespace Presentacion
             cargar();
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
+            btnBuscar.Enabled = true;
         }
 
         private void cargar()
@@ -114,6 +115,20 @@ namespace Presentacion
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBuscarArticulo buscar = new frmBuscarArticulo();
+                buscar.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
