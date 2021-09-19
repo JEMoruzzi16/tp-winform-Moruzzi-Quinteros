@@ -30,10 +30,10 @@ namespace Presentacion
             
         }
 
-        private void dgbArticulos_SelectionChanged(object sender, EventArgs e)
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo Seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(Seleccionado.ImagenUrl);
+            //Articulo Seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
+            //cargarImagen(Seleccionado.ImagenUrl);
         }
 
         private void cargarImagen(string imagen)
@@ -51,9 +51,9 @@ namespace Presentacion
         private void btnListar_Click(object sender, EventArgs e)
         {
             cargar();
+            hideColumns();
             btnModificar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btnBuscar.Enabled = true;
+            btnEliminar.Enabled = true;            
         }
 
         private void cargar()
@@ -62,8 +62,8 @@ namespace Presentacion
             try
             {
                 listaArticulo = servicio.listar();
-                dgbArticulos.DataSource = listaArticulo;
-                dgbArticulos.Columns["ImagenUrl"].Visible = false;
+                dgvArticulos.DataSource = listaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
                 cargarImagen(listaArticulo[0].ImagenUrl);
             }
             catch (Exception ex)
@@ -86,7 +86,7 @@ namespace Presentacion
 
             try
             {
-                seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
                 frmAltaArticulo1 modifcar = new frmAltaArticulo1(seleccionado);
                 modifcar.ShowDialog();
@@ -106,7 +106,7 @@ namespace Presentacion
             Articulo seleccionado;
             try
             {
-                seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
                 frmEliminar modifcar = new frmEliminar(seleccionado);
                 modifcar.StartPosition = FormStartPosition.CenterScreen;
@@ -118,19 +118,44 @@ namespace Presentacion
                 throw ex;
             }
         }
+                
+        private void hideColumns()
+        {            
+            dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+            dgvArticulos.Columns["ImagenUrl"].Visible = false;
+        }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void buscar()
         {
-            try
+            //txtSearch
+            List<Articulo> listaFiltrada;
+            if (txtSearch.Text != "")
             {
-                frmBuscarArticulo buscar = new frmBuscarArticulo();
-                buscar.ShowDialog();
+                listaFiltrada = listaArticulo.FindAll(item => item.Codigo.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Nombre.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Marca.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Categoria.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()));
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = listaFiltrada;                
+                hideColumns();
             }
-            catch (Exception ex)
+            else
             {
 
-                throw ex;
+                //hideColumns();
             }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            buscar();
+        }
+
+        private void dgvArticulos_MouseClick(object sender, MouseEventArgs e)
+        {
+            Articulo Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            cargarImagen(Seleccionado.ImagenUrl);
         }
     }
 }
+
+

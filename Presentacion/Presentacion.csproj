@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBuscarArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscarArticulo.Designer.cs">
-      <DependentUpon>frmBuscarArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAltaArticulo1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +66,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBuscarArticulo.resx">
-      <DependentUpon>frmBuscarArticulo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAltaArticulo1.resx">
       <DependentUpon>frmAltaArticulo1.cs</DependentUpon>
     </EmbeddedResource>
