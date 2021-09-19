@@ -54,16 +54,15 @@ namespace Presentacion
         {
             cargarDatos();
             hideColumns();
-            setearBotones();
+            prenderBotones();
             
         }
 
-        private void setearBotones()
+        private void prenderBotones()
         {
             btnModificar.Enabled = true;
             btnEliminar.Enabled = true;
             btnDetalle.Enabled = true;
-            btnBuscar.Enabled = true;
         }
 
         private void cargarDatos()
@@ -76,6 +75,18 @@ namespace Presentacion
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
                 cargarImagen(listaArticulo[0].ImagenUrl);
                 hideColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void dataLoad()
+        {
+            ArticuloServicio servicio = new ArticuloServicio();
+            try
+            {
+                listaArticulo = servicio.listar();                                
             }
             catch (Exception ex)
             {
@@ -138,14 +149,15 @@ namespace Presentacion
 
         private void buscar()
         {
-            //txtSearch
-            List<Articulo> listaFiltrada;
+            dataLoad();
+            List<Articulo> listaCoincidente;
             if (txtSearch.Text != "")
             {
-                listaFiltrada = listaArticulo.FindAll(item => item.Codigo.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Nombre.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Marca.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Categoria.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()));
+                listaCoincidente = listaArticulo.FindAll(item => item.Codigo.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Nombre.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Marca.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()) || item.Categoria.Descripcion.ToUpper().Contains(txtSearch.Text.ToUpper()));
                 dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = listaFiltrada;                
+                dgvArticulos.DataSource = listaCoincidente;                
                 hideColumns();
+                prenderBotones();
             }
             else
             {
