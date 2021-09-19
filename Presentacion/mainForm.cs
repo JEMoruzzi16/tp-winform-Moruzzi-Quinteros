@@ -18,17 +18,19 @@ namespace Presentacion
         public mainForm()
         {
             InitializeComponent();
+            this.ControlBox = false;
+            this.Text = string.Empty;
         }
 
-        private void pbxLogout_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        //private void pbxLogout_Click(object sender, EventArgs e)
+        //{
+        //    Application.Exit();
+        //}
 
-        private void pbxLogout_MouseEnter(object sender, EventArgs e)
-        {
+        //private void pbxLogout_MouseEnter(object sender, EventArgs e)
+        //{
             
-        }
+        //}
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -50,13 +52,21 @@ namespace Presentacion
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            cargar();
+            cargarDatos();
             hideColumns();
-            btnModificar.Enabled = true;
-            btnEliminar.Enabled = true;            
+            setearBotones();
+            
         }
 
-        private void cargar()
+        private void setearBotones()
+        {
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+            btnDetalle.Enabled = true;
+            btnBuscar.Enabled = true;
+        }
+
+        private void cargarDatos()
         {
             ArticuloServicio servicio = new ArticuloServicio();
             try
@@ -65,6 +75,7 @@ namespace Presentacion
                 dgvArticulos.DataSource = listaArticulo;
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
                 cargarImagen(listaArticulo[0].ImagenUrl);
+                hideColumns();
             }
             catch (Exception ex)
             {
@@ -75,8 +86,7 @@ namespace Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAltaArticulo1 alta = new frmAltaArticulo1();
-            alta.ShowDialog();
-            cargar();
+            alta.ShowDialog();            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -90,12 +100,11 @@ namespace Presentacion
 
                 frmAltaArticulo1 modifcar = new frmAltaArticulo1(seleccionado);
                 modifcar.ShowDialog();
-                cargar();
+                cargarDatos();
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                msjError();
             }
             
         }
@@ -111,18 +120,18 @@ namespace Presentacion
                 frmEliminar modifcar = new frmEliminar(seleccionado);
                 modifcar.StartPosition = FormStartPosition.CenterScreen;
                 modifcar.ShowDialog();
-                cargar();
+                cargarDatos();
             }
             catch (Exception ex)
             {
-                throw ex;
+                msjError();
             }
         }
                 
         private void hideColumns()
         {            
             dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["Codigo"].Visible = false;
+            //dgvArticulos.Columns["Codigo"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["ImagenUrl"].Visible = false;
         }
@@ -155,6 +164,36 @@ namespace Presentacion
             Articulo Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             cargarImagen(Seleccionado.ImagenUrl);
         }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo Seleccionado;           
+
+            try
+            {
+                Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                frmDetalle detallado = new frmDetalle(Seleccionado);
+                detallado.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                msjError(); ;
+            }
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void msjError()
+        {
+            MessageBox.Show("¡ERROR! Debe seleccionar un articulo de la lista antes de \r\n" +
+                "realizar la acción deseada.");
+        }
+
     }
 }
 

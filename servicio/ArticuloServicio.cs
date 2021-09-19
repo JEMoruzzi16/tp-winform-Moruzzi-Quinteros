@@ -124,59 +124,6 @@ namespace servicio
                 datos.cerrarConexxion();
             }
         }
-
-        public void buscar(Articulo busquedo, int valor)
-        {
-
-            Marca marca = new Marca();
-            Categoria categoria = new Categoria();
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                if (valor == 1)
-                {
-                    //De codigo
-                    datos.setearConsulta("select @Codi, @Nom, @Des, @img, @DesMa Marca, @DesCa Categoria from ARTICULOS as AR inner join MARCAS as MA on @IdMar = @MarId inner join CATEGORIAS as CA on @IdCat = @CatId where(Codigo=@Cod)");
-                    datos.setearParametro("@Cod", busquedo.Codigo);
-                    datos.setearParametro("@Codi", busquedo.Codigo);
-                    datos.setearParametro("@Nom", busquedo.Codigo);
-                    datos.setearParametro("@Des", busquedo.Codigo);
-                    datos.setearParametro("@Img", busquedo.Codigo);
-                    datos.setearParametro("@DesMa", busquedo.Marca.Descripcion);
-                    datos.setearParametro("@DesCa", categoria.Descripcion);
-                    datos.setearParametro("@IdMar", busquedo.Marca.Id);
-                    datos.setearParametro("@MarId", marca.Id);
-                    datos.setearParametro("@IdCat", busquedo.Categoria.Id);
-                    datos.setearParametro("@CatId", categoria.Id);
-                    
-                    /*datos.setearParametro("@Des", busquedo.Descripcion);
-                    datos.setearParametro("@Img", busquedo.ImagenUrl);*/
-
-                    datos.ejecutarLectura();
-                    datos.Lector.Read();
-
-                }
-                else if (valor == 2)
-                { 
-                    //Por categoria
-                    datos.setearConsulta("");
-                }
-                else
-                {
-                    //Por marca
-                    datos.setearConsulta("");
-                }
-                    
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                datos.cerrarConexxion();
-            }
-        }
+        
     }
 }
