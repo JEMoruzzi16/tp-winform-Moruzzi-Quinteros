@@ -18,20 +18,11 @@ namespace Presentacion
         public mainForm()
         {
             InitializeComponent();
-            this.ControlBox = false;
+            /*this.ControlBox = false*/;
             this.Text = string.Empty;
         }
 
-        //private void pbxLogout_Click(object sender, EventArgs e)
-        //{
-        //    Application.Exit();
-        //}
-
-        //private void pbxLogout_MouseEnter(object sender, EventArgs e)
-        //{
-            
-        //}
-
+        
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             //Articulo Seleccionado = (Articulo)dgbArticulos.CurrentRow.DataBoundItem;
@@ -186,10 +177,7 @@ namespace Presentacion
             {
                 Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmDetalle detallado = new frmDetalle(Seleccionado);
-                detallado.ShowDialog();
-
-
-                
+                detallado.ShowDialog();              
                 
             }
             catch (Exception ex)
@@ -213,10 +201,18 @@ namespace Presentacion
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((int)e.KeyChar==(int)Keys.Enter)
+            if(e.KeyChar==(int)Keys.Enter)
             {
                 buscar();
+                e.Handled = true;
             }
+        }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hecho por J.Moruzzi y D.Quinteros para Programación III.\r\n"
+                + "Profesor: Maximiliano Sar Fernandez. Asistente Elias Valenzuela.\r\n"
+                + "UTN Facultad Regional General Pacheco. Septiembre 2021");
         }
     }
 }

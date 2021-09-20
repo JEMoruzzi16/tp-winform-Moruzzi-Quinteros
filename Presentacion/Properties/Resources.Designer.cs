@@ -133,6 +133,16 @@ namespace Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Info {
+            get {
+                object obj = ResourceManager.GetObject("Info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoAppCatalog {
             get {
                 object obj = ResourceManager.GetObject("logoAppCatalog", resourceCulture);
@@ -186,6 +196,16 @@ namespace Presentacion.Properties {
         internal static System.Drawing.Bitmap shopping_list {
             get {
                 object obj = ResourceManager.GetObject("shopping-list", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Utn_Frgp {
+            get {
+                object obj = ResourceManager.GetObject("Utn Frgp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
