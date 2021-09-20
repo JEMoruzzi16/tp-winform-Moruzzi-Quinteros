@@ -10,3 +10,9 @@ C:\Users\julia\OneDrive\Escritorio\tp Catalogo winform\tp-winform-Moruzzi-Quinte
 C:\Users\julia\OneDrive\Escritorio\tp Catalogo winform\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
 C:\Users\julia\OneDrive\Escritorio\tp Catalogo winform\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.dll
 C:\Users\julia\OneDrive\Escritorio\tp Catalogo winform\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.pdb
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\bin\Debug\dominio.dll
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\bin\Debug\dominio.pdb
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.csproj.AssemblyReference.cache
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.csproj.CoreCompileInputs.cache
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.dll
+C:\Users\julia\OneDrive\Escritorio\otra vez sopa tp\tp-winform-Moruzzi-Quinteros\dominio\obj\Debug\dominio.pdb

@@ -41,11 +41,11 @@
             // 
             this.lblName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.White;
             this.lblName.Location = new System.Drawing.Point(281, 27);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(71, 25);
+            this.lblName.Size = new System.Drawing.Size(76, 25);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "label1";
             // 

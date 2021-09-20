@@ -26,6 +26,7 @@ namespace Presentacion
             this.articulo = _articulo;
             this.Text = string.Empty;
             this.ControlBox = false;
+            txtDetalle.Select(txtDetalle.Text.Length, 0);
         }
 
         private void frmDetalle_Load(object sender, EventArgs e)
@@ -34,6 +35,8 @@ namespace Presentacion
             mostrarDetalle();
             cargarImagen(articulo.ImagenUrl);
             btnContinuar.Focus();
+            
+
 
         }
         
@@ -46,6 +49,7 @@ namespace Presentacion
                 "\r\nMarca: " + articulo.Marca.Descripcion +
                 "\r\nCategoría: " + articulo.Categoria.Descripcion + 
                 "\r\nPrecio: " + articulo.Precio;
+            txtDetalle.Select(txtDetalle.Text.Length, 0);
         }
 
         private void btnContinuar_Click(object sender, EventArgs e)

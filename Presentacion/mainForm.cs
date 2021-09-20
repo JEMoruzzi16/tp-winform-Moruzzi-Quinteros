@@ -158,6 +158,7 @@ namespace Presentacion
                 dgvArticulos.DataSource = listaCoincidente;                
                 hideColumns();
                 prenderBotones();
+                
             }
             else
             {
@@ -186,6 +187,10 @@ namespace Presentacion
                 Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmDetalle detallado = new frmDetalle(Seleccionado);
                 detallado.ShowDialog();
+
+
+                
+                
             }
             catch (Exception ex)
             {
@@ -206,6 +211,13 @@ namespace Presentacion
                 "realizar la acción deseada.");
         }
 
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((int)e.KeyChar==(int)Keys.Enter)
+            {
+                buscar();
+            }
+        }
     }
 }
 
